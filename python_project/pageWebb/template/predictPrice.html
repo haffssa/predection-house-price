@@ -1,0 +1,95 @@
+{% load static    %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Pridecting Page</title>
+  </head>
+  
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+
+  <body id="r">
+   
+        {% block content %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <div class="container-fluid">
+       <a class="navbar-brand ">
+         <!--<img src="{% static 'firstPage/image/logo.jpg' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top" title="Notre logo">-->
+         <img id="currentPhoto" src="{% static 'firstPage/image/logo.jpg' %}" onerror="this.onerror=null; this.src='C:\Users\PC\Desktop\python_project\pageWebb\image\logo.jpg'" alt="logo" width="30" height="24" title="Notre logo">
+         Constrution maisson
+       </a>
+       <div class="nav justify-content-end" >
+         <a class="btn btn-outline-success" href="index" type="submit">back</a>
+       </div>
+     </div>
+   </nav>
+    {% endblock %}
+
+
+
+
+
+    <h2> Formulaire des donnes :</h2>
+  
+  <form method="post" action="predictPrice">
+    {% csrf_token %}
+    <center>
+       <legend> Your House Measure </legend>
+       <label> Surface : </label> <br>
+       <input type = "number" name = "surface" required > <br>
+       <label> Nombre de pieces : </label> <br>
+       <input type = "number" name = "nb_p" required > <br>
+       <label> Nombre de chambre :</label> <br>
+       <input type = "number" name = "nb_c" required > <br>
+       <label> Nombre de salle de bains :</label> <br>
+       <input type = "number" name = "nb_s" required > <br>
+       <label> Etage :</label> <br>
+       <input type = "number" name = "etage" required > <br>
+       <div>
+        <label> Ville :</label> <br>
+        <select name="ville" required > 
+            <option value="1" selected="selected">Kenitra</option>
+            <option value="2" >Rabat</option>
+            <option value="1" >Casablanca</option>
+            <option value="4" >Tanger</option>
+            <option value="5" >Assilah</option>
+            <option value="6" >Tetouan</option>
+            <option value="7" >Marrakech</option>
+            <option value="8" >Agadir</option>
+            <option value="8" >Fez</option>
+            <option value="9" >Chefchaouen</option>
+            <option value="10" >Essaouira</option><br>
+        </select>
+       </div>
+       <div class="btn btn-secondary disabled" >
+        <button type="submit"  ><i class="fa fa-h-square" tabindex="-1" role="button" aria-disabled="true"></i>valider</button>
+       </div>
+       <div class="btn btn-secondary disabled">
+        <button type="submit"  ><i class="fa fa-h-square" tabindex="-1" role="button" aria-disabled="true"></i>cancel</button>
+       </div>
+       <!--<div>
+        <a href="index.html" class="btn btn-primary disabled" tabindex="-1" role="button" aria-disabled="true">valider</button>
+      </form>
+        <a href="index.html" class="btn btn-secondary disabled" tabindex="-1" role="button" aria-disabled="true">cancel</button>
+       </div>-->
+      <!---- <div class="btn btn-outline-success" href="index.html">
+        <button class="btn btn-outline-success" type="submit">cancel</button>
+      </form>
+    </div>
+       <input type = "submit" value = "valider"></type>-->
+    </center>
+    <div >
+   <!-- {%   if prix > 0 %}
+    <h2> Le prix est {{prix}} </h2>
+    {%  endif %}-->
+  </div>
+</form>
+</body>
+</html>
